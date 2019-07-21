@@ -1,0 +1,23 @@
+{
+  "name": "cloudqueryapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zironite/CloudQueryApi.git"
+  },
+  "author": "Liron Levy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zironite/CloudQueryApi/issues"
+  },
+  "homepage": "https://github.com/Zironite/CloudQueryApi#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^4.0.9"
+  }
+}
