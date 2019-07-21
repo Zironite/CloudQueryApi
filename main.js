@@ -11,7 +11,13 @@ const db = new sqlite3.Database("file.db", sqlite3.OPEN_READONLY, (err) => {
 });
 app.get("/results", (req,res) => {
     db.serialize(() => {
-        db.all("SELECT * from links", (err,rows) => {
+        db.all(`SELECT * 
+                FROM links 
+                WHERE link LIKE '%${req.query.query}%' OR
+                    title LIKE '%${req.query.query}%' OR
+                    description LIKE '%${req.query.query}%' OR
+                    gist LIKE '%${req.query.query}%' OR
+                    screenshot_url LIKE '%${req.query.query}%'`, (err,rows) => {
             if (err) {
                 console.log(err);
             }
