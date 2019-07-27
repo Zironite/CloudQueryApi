@@ -1,6 +1,8 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
+var cors = require('cors');
 const app = express();
+app.use(cors());
 const port = 55555;
 const db = new sqlite3.Database("file.db", sqlite3.OPEN_READONLY, (err) => {
     if (err) {
