@@ -1,20 +1,10 @@
 const express = require("express");
-const sqlite3 = require("sqlite3").verbose();
-const aws = require('aws-sdk');
-const uuid = require('uuid');
 const mysql = require('mysql');
 var cors = require('cors');
 
 const app = express();
 app.use(cors());
 const port = 55555;
-const db = new sqlite3.Database("file.db", sqlite3.OPEN_READONLY, (err) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Connected to db")
-    }
-});
 const connection = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     port: process.env.MYSQL_PORT,
