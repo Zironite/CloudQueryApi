@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Zironite/CloudQueryApi#readme",
   "dependencies": {
+    "aws-sdk": "^2.503.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "sqlite3": "^4.0.9"
