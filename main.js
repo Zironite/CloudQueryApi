@@ -55,14 +55,6 @@ connection.connect((err) => {
                     console.error(err);
                 } else {
                     console.log('Successfully inserted to CloudWatch');
-                    console.log(data);
-                }
-            }).send((err,data) => {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log('Successfully inserted to CloudWatch');
-                    console.log(data);
                 }
             });
             res.send({
