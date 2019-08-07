@@ -5,7 +5,7 @@ const aws = require('aws-sdk');
 
 const cloudWatch = new aws.CloudWatch();
 const app = express();
-app.use(cors({ origin: ['http://localhost','https://colman-twitter-ui-bucket.s3.amazonaws.com'] }));
+app.use(cors());
 const port = Number(process.env.APP_PORT);
 const connection = mysql.createConnection({
     host: process.env.MYSQL_HOST,
