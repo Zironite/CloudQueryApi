@@ -19,13 +19,19 @@ connection.connect((err) => {
     app.get("/results", (req, res) => {
         if (err) throw err;
         const start = process.hrtime();
+
+        let valueToSearch = '';
+        if (req.query.query) {
+            valueToSearch = req.query.query;
+        }
+
         connection.query(`SELECT * 
                         FROM TWITTER_LINKS 
-                        WHERE LINK LIKE '%${req.query.query}%' OR
-                            TITLE LIKE '%${req.query.query}%' OR
-                            DESCRIPTION LIKE '%${req.query.query}%' OR
-                            CONTENT LIKE '%${req.query.query}%' OR
-                            SCREENSHOT_URL LIKE '%${req.query.query}%'
+                        WHERE LINK LIKE '%${valueToSearch}%' OR
+                            TITLE LIKE '%${valueToSearch}%' OR
+                            DESCRIPTION LIKE '%${valueToSearch}%' OR
+                            CONTENT LIKE '%${valueToSearch}%' OR
+                            SCREENSHOT_URL LIKE '%${valueToSearch}%'
                         LIMIT 1000`, (err, result) => {
             if (err) throw err;
             const transformedResults = result.map(row => {
